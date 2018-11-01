@@ -1,0 +1,27 @@
+/*#account-login .card-account-left {
+  background: -webkit-gradient(linear, left top, right top, from(#266db9), to(#153b71));
+  background: -webkit-linear-gradient(left, #266db9, #153b71);
+  background: -moz-linear-gradient(left, #266db9, #153b71);
+  background: -o-linear-gradient(left, #266db9, #153b71);
+  background: linear-gradient(90deg, #266db9, #153b71);
+  border-radius: 5px 0 0 5px; }*/
+  
+  #account-login .card-account-left .card-account-img {
+    position: relative;
+    top: -webkit-calc(200px - 125px);
+    top: -moz-calc(200px - 125px);
+    top: calc(265px - 125px); }
+
+#account-login .card-account-right {
+  border-radius: 0 50px 50px 0; }
+#account-login .card-account-left { 
+    background: url(/images/backgrounds/loginbg.jpg) no-repeat center center;
+    border-radius: 50px 0 0 50px;
+    border-width: 1px;
+    border-color: white;
+	border-style: solid; 
+	background-size: cover;
+}
+.width-265 {
+    width: 100% !important;
+}

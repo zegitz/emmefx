@@ -1,0 +1,18 @@
+#account-register .card-account-left .card-account-img {
+    position: relative;
+    top: -webkit-calc(200px - 125px);
+    top: -moz-calc(200px - 125px);
+    top: calc(265px - 125px); }
+
+#account-register .card-account-right {
+  border-radius: 0 50px 50px 0; }
+#account-register .card-account-left { 
+    background: url(/images/backgrounds/loginbg.jpg) no-repeat center center;
+    border-radius: 50px 0 0 50px;
+    border-width: 1px;
+    border-color: white;
+	border-style: solid; 
+}
+.width-265 {
+    width: 265px !important;
+}
