@@ -1,0 +1,70 @@
+<!-- fixed-top-->
+<ng-include src="'views/topmenu.html'"></ng-include>
+<ng-include src="'views/leftmenu.html'"></ng-include>
+<ajustebody></ajustebody>
+    <!-- ////////////////////////////////////////////////////////////////////////////-->
+
+    <div class="app-content content">
+      <div class="content-wrapper">
+        <div class="content-header row">
+          <div class="content-header-left col-md-8 col-12 mb-2 breadcrumb-new">
+            <h3 class="content-header-title mb-0 d-inline-block">Contas</h3>
+            <div class="row breadcrumbs-top d-inline-block">
+              <div class="breadcrumb-wrapper col-12">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="#">Nova Conta</a>
+                  </li>
+                  <li class="breadcrumb-item active">Contas
+                  </li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="content-body">
+
+<div class="row">
+    <div id="recent-transactions" class="col-12">
+        <h6 class="my-2"Usuarios</h6>
+        <div class="card">
+            <div class="card-content">
+                <div class="table-responsive">
+                    <table id="recent-orders" class="table table-hover table-xl mb-0">
+                        <thead>
+                            <tr>
+                                <th class="border-top-0">#ID</th>
+                                <th class="border-top-0">Conta</th>
+                                <th class="border-top-0">Cliente</th>
+								<th class="border-top-0">Depósito</th>
+								<th class="border-top-0">Gerente</th>
+                                <th class="border-top-0">Status EA</th>
+                                <th class="border-top-0">Ferramentas</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="conta in listagemContas">
+                                <td class="text-truncate">{{conta.id}}</td>
+                                <td class="text-truncate">{{conta.accountnumber}}</td>
+                                <td class="text-truncate">{{conta.name}}</td>
+								<td class="text-truncate">{{conta.credit}}</td>
+								<td class="text-truncate">{{conta.manager}}</td>
+                                <td class="text-truncate"><span ng-show="conta.status == 1"><i class="la la-dot-circle-o success font-large-1" ></i>On</span>
+								<span ng-show="conta.status == 0"><i class="la la-dot-circle-o danger font-large-1" ></i>Off</span></td>
+                                <td><a href="#" class="mb-0 btn-sm btn btn-outline-success round">Editar</a></td> 
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+        </div>
+      </div>
+    </div>
+    <!-- ////////////////////////////////////////////////////////////////////////////-->
+
+
+    <footer class="footer footer-static footer-transparent">
+      <p class="clearfix blue-grey lighten-2 text-sm-center mb-0 px-2"><span class="float-md-left d-block d-md-inline-block">Copyright  &copy; 2018 EMEFX , All rights reserved. </span><span class="float-md-right d-block d-md-inline-blockd-none d-lg-block">Hand-crafted & Made by Gitz<i class="ft-heart pink"></i></span></p>
+    </footer>

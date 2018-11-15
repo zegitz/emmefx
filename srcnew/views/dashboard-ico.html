@@ -1,0 +1,101 @@
+<!-- fixed-top-->
+<ng-include src="'views/topmenu.html'"></ng-include>
+<ng-include src="'views/leftmenu.html'"></ng-include>
+<ajustebody></ajustebody>
+    <!-- ////////////////////////////////////////////////////////////////////////////-->
+
+    <div class="app-content content">
+      <div class="content-wrapper">
+        <div class="content-header row">
+          <div class="content-header-left col-md-8 col-12 mb-2 breadcrumb-new">
+            <h3 class="content-header-title mb-0 d-inline-block">Dashboard</h3>
+            <div class="row breadcrumbs-top d-inline-block">
+              <div class="breadcrumb-wrapper col-12">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="content-body">
+<!-- Purchase token -->
+<div class="row">
+
+	<div class="col-6">
+        <h6 class="my-2">EMME TRADER CONTROL</h6>
+        <div class="card pull-up">
+            <div class="card-content">
+                <div class="card-body">
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col-md-8 col-12">
+                                <p><strong>Balanço total:</strong></p>
+                                <h1>1000.000,00</h1>
+                               <!-- <p class="mb-0">Welcome bonus <strong>+30%</strong> expires in 21 days.</p>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+	 <div class="col-6">
+        <h6 class="my-2">Meta Mensal</h6>
+        <div class="card pull-up">
+            <div class="card-content collapse show">
+                <div class="card-body">
+                    <div class="font-small-3 clearfix">
+                        <span class="float-left">$0</span>
+                        <span class="float-right">$5M</span>
+                    </div>
+                    <div class="progress progress-sm my-1 box-shadow-2">
+                        <div class="progress-bar bg-secondary" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<!-- ICO Token &  Distribution-->
+<div class="row match-height" ng-controller="homectrl as homectrl">
+    <div class="col-xl-8 col-12">
+        <div class="card card-transparent">
+            <div class="card-header card-header-transparent py-20">
+                <div class="btn-group dropdown">
+                    <h6>Crescimento</h6>
+                </div>
+            </div>
+			<div id="ico-token-supply-demand-chart" class="height-300"></div>
+        </div>
+    </div>
+    <div class="col-xl-4 col-lg-12">
+        <div class="card card-transparent">
+            <div class="card-header card-header-transparent">
+                <h6 class="card-title">Distribuição do Saldo</h6>
+            </div>
+            <div class="card-content">
+                <div id="token-distribution-chart" class="height-200 donut donutShadow"></div>
+                <div class="card-body">
+                    <div class="row mx-0">
+                        <ul class="token-distribution-list col-md-6 mb-0">
+                            <li class="crowd-sale">Clientes 1 <span class="float-right text-muted">41%</span></li>
+                            <li class="team">Clientes 2 <span class="float-right text-muted">18%</span></li>
+                            <li class="advisors">Clientes 3 <span class="float-right text-muted">15%</span></li>
+                        </ul>
+                        <ul class="token-distribution-list col-md-6 mb-0">
+                            <li class="project-reserve">Clientes 4 <span class="float-right text-muted">10%</span></li>
+                            <li class="master-nodes">Clientes 5 <span class="float-right text-muted">8%</span></li>
+                            <li class="program">Clientes 6 <span class="float-right text-muted">8%</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+        </div>
+      </div>
+    </div>
+    <!-- ////////////////////////////////////////////////////////////////////////////-->
+    <footer class="footer footer-static footer-transparent">
+      <p class="clearfix blue-grey lighten-2 text-sm-center mb-0 px-2"><span class="float-md-left d-block d-md-inline-block">Copyright  &copy; 2018 EMEFX , All rights reserved. </span><span class="float-md-right d-block d-md-inline-blockd-none d-lg-block">Hand-crafted & Made by Gitz<i class="ft-heart pink"></i></span></p>
+    </footer>

@@ -1,4 +1,4 @@
-# Xpro BackOffice
+# Emmefx Backoffice
 ## Requirements
 
 1. Install [NPM](https://nodejs.org/en/)
@@ -8,9 +8,6 @@
 
 Run `npm install` and `bower install` to install project dependencies.
 
-## Running unit tests
-
-Run `gulp test` to execute the unit tests via [Karma](https://karma-runner.github.io) and [PhantomJS](http://phantomjs.org/).
 
 ## Build
 
@@ -21,12 +18,3 @@ To build the project for development purposes (i.e., files are bundled but not m
 
 Run `gulp start` to start the application at [http://localhost:3000]
 
-## For login
-
-Username - xpro
-
-Password - test
-
-# TestNet Wallets
-Follow instructions here:
-https://docs.google.com/document/d/1UhIyt8gU2IfndjSdac4U8zDW3XDMo7yZPuxfVSlAf6o/edit?usp=sharing
