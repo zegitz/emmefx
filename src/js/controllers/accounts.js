@@ -3,10 +3,10 @@
 
     angular.module('emmefxApp')
   .controller('accountsctrl', accountsctrl)
-    accountsctrl.$inject = ['$window','$scope', '$rootScope', '$http','$localStorage', 'cssInjector','$interval',
+    accountsctrl.$inject = ['$window','$scope', '$rootScope', '$http','$localStorage','$interval',
     '$timeout']
 
-    function accountsctrl($window,$scope, $rootScope, $http ,$localStorage, cssInjector, $interval, $timeout) {
+    function accountsctrl($window,$scope, $rootScope, $http ,$localStorage, $interval, $timeout) {
 		
 		var $ctrl = this;
 		$rootScope.storage =  $localStorage;
@@ -14,24 +14,7 @@
 			$localStorage.$reset();
 			location.href = '#!/login';
 		} 
-		cssInjector.add("/css/bootstrap.css");
-		cssInjector.add("/css/font1.css");
-		cssInjector.add("/css/font2.css");
-		cssInjector.add("/css/font3.css");
-		cssInjector.add("/css/line-awesome.css");
-		cssInjector.add("/css/flag-icon.css");
-		cssInjector.add("/css/pace.css");
-		cssInjector.add("/css/customchartist.css");
-		cssInjector.add("/css/chartist-plugin-tooltip.css");
-		cssInjector.add("/css/bootstrap-extended.css");
-		cssInjector.add("/css/colors.css");
-		cssInjector.add("/css/components.css");
-		cssInjector.add("/css/vertical-compact-menu.css");
-		cssInjector.add("/css/cryptocoins.css");
-		cssInjector.add("/css/timeline.css");
-		cssInjector.add("/css/dashboard-ico.css");
-		cssInjector.add("/css/angular-datatables.css");
-	
+		
 	
 var addressApi = "http://netpdm.com.br:83/api";
 	
