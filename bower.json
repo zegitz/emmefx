@@ -1,0 +1,47 @@
+{
+  "name": "emmefx-frontend",
+  "description": "",
+  "main": "index.js",
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.7.5",
+    "angular-mocks": "^1.7.5",
+    "moment": "^2.9.0",
+    "lodash": "^4.17.11",
+    "angular-messages": "^1.7.5",
+    "angular-cookies": "^1.7.5",
+    "angular-timer": "^1.3.5",
+    "angular-translate": "^2.15.2",
+    "angular-translate-loader-static-files": "^2.18.1",
+    "angular-sanitize": "^1.7.5",
+    "mathjs": "^3.20.2",
+    "ng-file-upload": "^12.2.13",
+    "ng-img-crop": "ngImgCrop#^0.3.2",
+    "angular-bootstrap": "^2.5.0",
+    "chartistAngularDirective.js": "chartist-directive#^0.8.2",
+    "ng-morris-js": "^0.3.5",
+    "morris.js": "^0.5.1",
+    "chartist": "^0.7.4",
+    "mocha": "^1.17.1",
+    "raphael": "^2.2.7",
+    "jquery": "^3.3.1",
+    "humanize-duration": "^3.10.1",
+    "eve-raphael": "^0.5.0",
+    "ng-knob": "^0.1.3",
+    "Croppie": "croppie#^2.6.2"
+  },
+  "resolutions": {
+    "angular": "~1.7.5"
+  },
+  "devDependencies": {
+    "jquery.easy-pie-chart": "^2.1.6"
+  }
+}

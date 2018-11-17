@@ -1,3 +1,24 @@
 [
-	"./srcnew/css/**/*.css"
+	"./src/css/bootstrap.css",
+	"./src/css/font1.css",
+	"./src/css/font2.css",
+	"./src/css/font3.css",
+	"./src/css/line-awesome.css",
+	"./src/css/flag-icon.css",
+	"./src/css/pace.css",
+	"./src/css/custom.css",
+	"./src/css/chartist-plugin-tooltip.css",
+	"./src/css/customchartist.css",
+	"./src/css/bootstrap-extended.css",
+	"./src/css/colors.css",
+	"./src/css/components.css",
+	"./src/css/vertical-compact-menu.css",
+	"./src/css/cryptocoins.css",
+	"./src/css/account-login.css",
+	"./src/css/buy-ico.css",
+	"./src/css/dashboard-ico.css",
+	"./src/css/timeline.css",
+	"./src/css/angular-datatables.css",
+	"./src/css/ultimate-datatable.css",
+	"./src/css/angular-toastr.css"
 ]
