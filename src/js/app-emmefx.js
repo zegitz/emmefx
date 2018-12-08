@@ -67,6 +67,18 @@
                 templateUrl: 'views/accounts.html',
                 controller: 'accountsctrl'
             })
+
+            .state('newaccount', {
+                url: '/newaccount',
+                templateUrl: 'views/newaccount.html',
+                controller: 'newaccountctrl'
+            })
+
+            .state('editaccount', {
+                url: '/editaccount',
+                templateUrl: 'views/editaccount.html',
+                controller: 'editaccountctrl'
+            })
 			
 			.state('clients', {
                 url: '/clients',

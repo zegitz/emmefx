@@ -8,13 +8,13 @@
       <div class="content-wrapper">
         <div class="content-header row">
           <div class="content-header-left col-md-8 col-12 mb-2 breadcrumb-new">
-            <h3 class="content-header-title mb-0 d-inline-block">Equipe</h3>
+            <h3 class="content-header-title mb-0 d-inline-block">VPS</h3>
             <div class="row breadcrumbs-top d-inline-block">
               <div class="breadcrumb-wrapper col-12">
                 <ol class="breadcrumb">
-                  <li class="breadcrumb-item"><a href="/#!/newuser">Novo</a>
+                  <li class="breadcrumb-item"><a href="/#!/newvps">Novo</a>
                   </li>
-                  <li class="breadcrumb-item active">Equipe
+                  <li class="breadcrumb-item active">VPS
                   </li>
                 </ol>
               </div>
@@ -25,33 +25,29 @@
 
 <div class="row">
     <div id="recent-transactions" class="col-12">
-        <h6 class="my-2"Colaboradores</h6>
+        <h6 class="my-2">Lista de VPS</h6>
         <div class="card">
             <div class="card-content">
                 <div class="table-responsive">
                     <table id="recent-orders" class="table table-hover table-xl mb-0">
                         <thead>
                             <tr>
-                                <th class="border-top-0">#ID</th>
-                                <th class="border-top-0">Nome</th>
-								<th class="border-top-0">Username</th>
-                                <th class="border-top-0">Cargo</th>
-                                <th class="border-top-0">Email</th>
+                                <th class="border-top-0">IP</th>
+                                <th class="border-top-0">Código</th>
+								<th class="border-top-0">Responsável</th>
+                                <th class="border-top-0">Status</th>
+                                <th class="border-top-0">Validade</th>
                                 <th class="border-top-0">Ferramentas</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr ng-repeat="user in listagemUsers | orderBy : 'id'">
-                                <td class="text-truncate">{{user.id}}</td>
-                                <td class="text-truncate">{{user.name}}</td>
-								<td class="text-truncate">{{user.username}}</td>
-                                <td class="text-truncate" ng-show={{user.level==1}}>ADMIN</td>
-								<td class="text-truncate" ng-show={{user.level==2}}>DIRETOR</td>
-								<td class="text-truncate" ng-show={{user.level==3}}>SUPERVISOR</td>
-								<td class="text-truncate" ng-show={{user.level==4}}>DIRETOR</td>
-								<td class="text-truncate" ng-show={{user.level==5}}>CLIENTE</td>
-                                <td class="text-truncate">{{user.email}}</td>
-                                <td><a ng-href="/#!/edituser/{{user.id}}" class="mb-0 btn-sm btn btn-outline-success round">Editar</a></td> 
+                            <tr ng-repeat="vps in listagemVps | orderBy : 'id'">
+                                <td class="text-truncate">{{vps.ip}}</td>
+                                <td class="text-truncate">{{vps.codigo}}</td>
+								<td class="text-truncate">{{vps.manager}}</td>
+                                <td class="text-truncate">{{vps.status}}</td>
+                                <td class="text-truncate">{{vps.validade}}</td>
+                                <td><a ng-href="/#!/editvps/{{vps.id}}" class="mb-0 btn-sm btn btn-outline-success round">Editar</a></td> 
                             </tr>
                         </tbody>
                     </table>
