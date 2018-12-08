@@ -1,0 +1,84 @@
+<!-- fixed-top-->
+<ng-include src="'views/topmenu.html'"></ng-include>
+<ng-include src="'views/leftmenu.html'"></ng-include>
+<ajustebody></ajustebody>
+ <!-- ////////////////////////////////////////////////////////////////////////////-->
+ 
+    <div class="app-content content">
+      <div class="content-wrapper">
+        <div class="content-header row">
+          <div class="content-header-left col-md-8 col-12 mb-2 breadcrumb-new">
+            <h3 class="content-header-title mb-0 d-inline-block">Editar Usuario</h3>
+            <div class="row breadcrumbs-top d-inline-block">
+              <div class="breadcrumb-wrapper col-12">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="/#!/home">Dashboard</a>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="content-body"><div class="row">
+    <div class="col-12 col-md-12">
+        <!-- User Profile -->
+        <section class="card">
+            <div class="card-content">
+                <div class="card-body">
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col-md-12 col-12">
+							<h5 class="mt-3">Informações do Usuario</h5>
+                                <hr/>
+								<form name="new_user" ng-submit="submitUpdateUser()" class="form-horizontal form-user-profile row mt-2" >
+                                    <div class="col-6">
+                                        <fieldset class="form-label-group">
+                                            <input type="text" class="form-control" id="name" ng-model="userdata.name" value="" required="" autofocus="">
+                                            <label for="first-name">Nome</label>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-6">
+                                        <fieldset class="form-label-group">
+                                            <input type="text" class="form-control" id="email" ng-model="userdata.email" value="" required="" autofocus="">
+                                            <label for="email-address">Email</label>
+                                        </fieldset>
+                                    </div>
+									<div class="col-6">
+                                        <fieldset class="form-label-group">
+                                            <input type="text" class="form-control" id="username" ng-model="userdata.username" value="" required="" autofocus="">
+                                            <label for="username">Username</label>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-6">
+                                        <fieldset class="form-label-group">
+											<select class="custom-select" id="level" ng-model="userdata.level" required="">
+											<option ng-selected="{{x.id == userdata.level}}" ng-repeat="x in levelslist" value="{{x.id}}">{{x.level}}</option>
+											</select>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-6">
+                                        <fieldset class="form-label-group">
+                                            <input type="password" class="form-control" id="password" ng-model="userdata.password" placeholder="Senha" required="" autofocus="">
+                                            <label for="password">Senha</label>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-12 text-right">
+                                        <button type="submit" class="btn-gradient-secondary my-1">Criar</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+        </div>
+      </div>
+    </div>
+    <!-- ////////////////////////////////////////////////////////////////////////////-->
+
+
+  <footer class="footer footer-static footer-transparent">
+      <p class="clearfix blue-grey lighten-2 text-sm-center mb-0 px-2"><span class="float-md-left d-block d-md-inline-block">Copyright  &copy; 2018 EMEFX , All rights reserved. </span><span class="float-md-right d-block d-md-inline-blockd-none d-lg-block">Hand-crafted & Made by Gitz<i class="ft-heart pink"></i></span></p>
+    </footer>

@@ -2,11 +2,11 @@
     'use strict';
 
     angular.module('emmefxApp')
-  .controller('monitorCtrl', monitorCtrl)
-    monitorCtrl.$inject = ['$window','$scope','$location', 'datatable','$rootScope', '$http','$localStorage','$interval',
+  .controller('monitorTradersCtrl', monitorTradersCtrl)
+    monitorTradersCtrl.$inject = ['$window','$scope','$location', 'datatable','$rootScope', '$http','$localStorage','$interval',
     '$timeout']
 
-    function monitorCtrl($window,$scope ,$location , datatable, $rootScope, $http ,$localStorage  , $interval, $timeout) {
+    function monitorTradersCtrl($window,$scope ,$location , datatable, $rootScope, $http ,$localStorage  , $interval, $timeout) {
 		
 		var $mctrl = this;
 			$rootScope.storage =  $localStorage;
@@ -37,7 +37,7 @@
 	//console.log($location.url());
 	//$interval(function() {
 	$mctrl.teste = function(){
-	if($location.url() == "/monitor"){
+	if($location.url() == "/monitor-traders"){
 	$http.get(addressApi+'/account/read').then(
     function (response){
         $scope.datatableData = response.data;

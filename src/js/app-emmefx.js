@@ -10,19 +10,37 @@
         $stateProvider
             .state('login', {
                 url: '/login',
-                templateUrl: 'views/account-login.html',
+                templateUrl: 'views/login.html',
                 controller: 'loginctrl'
             })
 				
-			.state('monitor', {
-                url: '/monitor',
-                templateUrl: 'views/monitor.html',
-                controller: 'monitorCtrl'
+			.state('monitor-ea', {
+                url: '/monitor-ea',
+                templateUrl: 'views/monitorea.html',
+                controller: 'monitorEaCtrl'
+            })
+
+            .state('monitor-funds', {
+                url: '/monitor-funds',
+                templateUrl: 'views/monitorfunds.html',
+                controller: 'monitorFundsCtrl'
+            })
+
+            .state('monitor-vps', {
+                url: '/monitor-vps',
+                templateUrl: 'views/monitorvps.html',
+                controller: 'monitorVpsCtrl'
+            })
+
+            .state('monitor-traders', {
+                url: '/monitor-traders',
+                templateUrl: 'views/monitortraders.html',
+                controller: 'monitorTradersCtrl'
             })
 			
 			.state('home', {
                 url: '/home',
-                templateUrl: 'views/dashboard-ico.html',
+                templateUrl: 'views/home.html',
                 controller: 'homectrl'
             })
 			
@@ -54,6 +72,36 @@
                 url: '/clients',
                 templateUrl: 'views/clients.html',
                 controller: 'clientsctrl'
+            })
+
+            .state('newclient', {
+                url: '/newclient',
+                templateUrl: 'views/newclient.html',
+                controller: 'newclientctrl'
+            })
+
+            .state('editclient', {
+                url: '/editclient',
+                templateUrl: 'views/editclient.html',
+                controller: 'editclientctrl'
+            })
+
+            .state('vps', {
+                url: '/vps',
+                templateUrl: 'views/vps.html',
+                controller: 'vpsctrl'
+            })
+
+            .state('newvps', {
+                url: '/newvps',
+                templateUrl: 'views/newvps.html',
+                controller: 'newvpsctrl'
+            })
+
+            .state('editvps', {
+                url: '/editvps',
+                templateUrl: 'views/editvps.html',
+                controller: 'editvpsctrl'
             })
 			
 			

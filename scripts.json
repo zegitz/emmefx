@@ -4,8 +4,8 @@
 	"./src/js/scripts/vendors.min.js",
 	"./src/js/plugins/jquery.dataTables.min.js",
 	"./src/js/scripts/12_horizontal-timeline.js",
-	"./bower_components/chartist/dist/chartist.js",
-	"./src/js/scripts/chartist-plugin-tooltip.min.js",
+	"./src/js/plugins/chartist.js",
+	"./src/js/plugins/chartist-plugin-tooltip.min.js",
 	"./bower_components/angular/angular.js",
 	"./node_modules/ngstorage/ngStorage.js",
 	"./node_modules/angular-toastr/dist/angular-toastr.tpls.js",
@@ -18,16 +18,7 @@
     "./node_modules/@uirouter/angularjs/release/angular-ui-router.js",
 	"./bower_components/chartistAngularDirective.js/chartistAngularDirective.js",
 	"./src/js/directives/sidebar.js",
-	"./src/js/controllers/app-emmefx.js",
-    "./src/js/controllers/home.js",
-	"./src/js/controllers/users.js",
-	"./src/js/controllers/newuser.js",
-	"./src/js/controllers/edituser.js",
-	"./src/js/controllers/clients.js",
-	"./src/js/controllers/accounts.js",
-	"./src/js/controllers/monitor.js",
-	"./src/js/controllers/login.js",
-	"./src/js/controllers/register.js",
-	"./src/js/controllers/profile.js"
+	"./src/js/app-emmefx.js",
+    "./src/js/controllers/*.js"
 	
 ]
