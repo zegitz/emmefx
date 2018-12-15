@@ -63,11 +63,11 @@
                                     <div class="col-6">
                                         <fieldset class="form-label-group">
 											<select class="custom-select" id="level" ng-model="clientdata.manager" required="">
-											<option ng-selected="{{x.id == clientdata.manager}}" ng-repeat="x in managerlist" value="{{x.id}}">{{x.name}}</option>
+											<option ng-selected="{{x.id == 1}}" ng-repeat="x in userslist" value="{{x.id}}">{{x.name}}</option>
 											</select>
                                         </fieldset>
                                     </div>
-                               <!--   <div class="col-6">
+                               <!-- <div class="col-6">
                                         <fieldset class="form-label-group">
                                             <input type="password" class="form-control" id="password" ng-model="userdata.password" placeholder="Senha" required="" autofocus="">
                                             <label for="password">Senha</label>

@@ -9,54 +9,37 @@
     function newclientctrl($window,$scope, $rootScope, $http,$localStorage , $interval, $timeout, $resource, toastr ) {
 		
 		var $ctrl = this;
-			$scope.userdata = [];
+			$scope.clientdata = [];
 			$rootScope.storage =  $localStorage;
 		if(!($rootScope.storage.auth == 1)){
 			$localStorage.$reset();
 			location.href = '#!/login';
 		} 
-		//  cssInjector.add("/css/bootstrap.css");
-		//  cssInjector.add("/css/font1.css");
-		//  cssInjector.add("/css/font2.css");
-		//  cssInjector.add("/css/font3.css");
-		//  cssInjector.add("/css/line-awesome.css");
-		//  cssInjector.add("/css/flag-icon.css");
-		//  cssInjector.add("/css/pace.css");
-		//  cssInjector.add("/css/customchartist.css");
-		//  cssInjector.add("/css/chartist-plugin-tooltip.css");
-		//  cssInjector.add("/css/bootstrap-extended.css");
-		//  cssInjector.add("/css/colors.css");
-		//  cssInjector.add("/css/components.css");
-		//  cssInjector.add("/css/vertical-compact-menu.css");
-		//  cssInjector.add("/css/cryptocoins.css");
-		//  cssInjector.add("/css/timeline.css");
-		//  cssInjector.add("/css/dashboard-ico.css");
-		//  cssInjector.add("/css/angular-datatables.css");
-		//  cssInjector.add("/css/angular-toastr.css");
+		
 	
 	
 	var addressApi = "http://netpdm.com.br:83/api";
 
-	$scope.submitNewUser = function(){
+	$scope.submitNewCliente = function(){
 	 $http({
-        url: addressApi+'/user/create.php',
+        url: addressApi+'/client/create.php',
         method: "POST",
 		headers: {
 		'Content-Type': "application/json; charset=UTF-8"
 		},
         data: {
-		"name" : $scope.userdata.name,
-		"email" : $scope.userdata.email,
-		"username" : $scope.userdata.username,
-		"level" : $scope.userdata.level,
-		"password" : $scope.userdata.password,
+		"name" : $scope.clientdata.name,
+		"email" : $scope.clientdata.email,
+		"username" : $scope.clientdata.username,
+		"level" : $scope.clientdata.level,
+		"password" : $scope.clientdata.password,
 		"status" : '1'
 		}
 				
     })
     .then(function(response) {
              if(response.data.status == 1){
-				location.href = '#!/users';
+				location.href = '#!/clients';
 			toastr.success("Cadastro ok!", 'Sucesso!');
 			
 			}else{
@@ -68,26 +51,26 @@
     });
  };
  
- $scope.getLevelsList = function(){
+ $scope.getUsersList = function(){
 	 $http({
-        url: addressApi+'/user/levels.php',
+        url: addressApi+'/user/read.php',
         method: "POST",
 		headers: {
 		'Content-Type': "application/json; charset=UTF-8"
 		}			
     })
     .then(function(response) {
-            $scope.levelslist = response.data;
-			$scope.userdata={
-        level: '6'
-			}
+            $scope.userslist = response.data;
+			// $scope.userdata={
+      //   level: '6'
+			// }
 			console.log(response);
     }, 
     function(response) { // optional
              console.log(response);
     });
  };
- $scope.getLevelsList();
+ $scope.getUsersList();
  
 	$ctrl.appmenu = function() {
 		/*=========================================================================================
