@@ -2,11 +2,11 @@
     'use strict';
 
     angular.module('emmefxApp')
-  .controller('edituserctrl', edituserctrl)
-    edituserctrl.$inject = ['$window','$scope', '$rootScope', '$state', '$http','$localStorage','$interval',
+  .controller('newaccountctrl', newaccountctrl)
+    newaccountctrl.$inject = ['$window','$scope', '$rootScope', '$http','$localStorage','$interval',
     '$timeout','$resource','toastr']
 
-    function edituserctrl($window,$scope, $rootScope, $state ,$http,$localStorage , $interval, $timeout, $resource, toastr ) {
+    function newaccountctrl($window,$scope, $rootScope, $http,$localStorage , $interval, $timeout, $resource, toastr ) {
 		
 		var $ctrl = this;
 			$scope.userdata = [];
@@ -15,9 +15,26 @@
 			$localStorage.$reset();
 			location.href = '#!/login';
 		} 
+		//  cssInjector.add("/css/bootstrap.css");
+		//  cssInjector.add("/css/font1.css");
+		//  cssInjector.add("/css/font2.css");
+		//  cssInjector.add("/css/font3.css");
+		//  cssInjector.add("/css/line-awesome.css");
+		//  cssInjector.add("/css/flag-icon.css");
+		//  cssInjector.add("/css/pace.css");
+		//  cssInjector.add("/css/customchartist.css");
+		//  cssInjector.add("/css/chartist-plugin-tooltip.css");
+		//  cssInjector.add("/css/bootstrap-extended.css");
+		//  cssInjector.add("/css/colors.css");
+		//  cssInjector.add("/css/components.css");
+		//  cssInjector.add("/css/vertical-compact-menu.css");
+		//  cssInjector.add("/css/cryptocoins.css");
+		//  cssInjector.add("/css/timeline.css");
+		//  cssInjector.add("/css/dashboard-ico.css");
+		//  cssInjector.add("/css/angular-datatables.css");
+		//  cssInjector.add("/css/angular-toastr.css");
 	
-	 $ctrl.userID = $state.params.id;
-	 //console.log($ctrl.userID);
+	
 	var addressApi = "http://netpdm.com.br:83/api";
 
 	$scope.submitNewUser = function(){
@@ -47,30 +64,9 @@
 			}
     }, 
     function(response) { // optional
-            // console.log(response);
-    });
- };
-  $ctrl.getUserdata = function(){
-	 $http({
-        url: addressApi+'/user/read_one.php',
-        method: "POST",
-		headers: {
-		'Content-Type': "application/json; charset=UTF-8"
-		},	
-		data: {
-		"id" : $ctrl.userID
-		}		
-    })
-    .then(function(response) {
-            $scope.userdata = response.data;
-			console.log(response);
-    }, 
-    function(response) { // optional
              console.log(response);
     });
-  };
- 
- $ctrl.getUserdata();
+ };
  
  $scope.getLevelsList = function(){
 	 $http({
@@ -92,6 +88,7 @@
     });
  };
  $scope.getLevelsList();
+ 
 	$ctrl.appmenu = function() {
 		/*=========================================================================================
   File Name: app-menu.js

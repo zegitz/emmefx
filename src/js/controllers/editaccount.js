@@ -2,11 +2,11 @@
     'use strict';
 
     angular.module('emmefxApp')
-  .controller('edituserctrl', edituserctrl)
-    edituserctrl.$inject = ['$window','$scope', '$rootScope', '$state', '$http','$localStorage','$interval',
+  .controller('editaccountctrl', editaccountctrl)
+    editaccountctrl.$inject = ['$window','$scope', '$rootScope', '$state', '$http','$localStorage','$interval',
     '$timeout','$resource','toastr']
 
-    function edituserctrl($window,$scope, $rootScope, $state ,$http,$localStorage , $interval, $timeout, $resource, toastr ) {
+    function editaccountctrl($window,$scope, $rootScope, $state ,$http,$localStorage , $interval, $timeout, $resource, toastr ) {
 		
 		var $ctrl = this;
 			$scope.userdata = [];

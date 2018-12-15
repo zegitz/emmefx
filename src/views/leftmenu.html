@@ -3,24 +3,33 @@
         <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
           <li class=" nav-item"><a href="/#!/home"><i class="fas fa-home"></i><span class="menu-title" data-i18n="">Dashboard</span></a>
           </li>
-          <li class=" nav-item"><a href="/#!/users"><i class="fas fa-user"></i><span class="menu-title" data-i18n="">Equipe</span></a>
-          </li>
-		      <li class=" nav-item"><a href="/#!/clients"><i class="fas fa-users"></i><span class="menu-title" data-i18n="">Clientes</span></a>
-          </li>
-          <li class=" nav-item"><a href="/#!/vps"><i class="fas fa-tv"></i><span class="menu-title" data-i18n="">VPS</span></a>
-          </li>
-          <li class=" nav-item"><a href="/#!/accounts"><i class="fas fa-clipboard-list"></i><span class="menu-title" data-i18n="">Contas</span></a>
-          </li>
+          <li class=" nav-item has-sub" id="networkmenu" ><a href="" ><i class="fas fa-users"></i><span class="menu-title" data-i18n="">Controle</span></a>
+            <ul class="menu-content">
+                   <li><a class="menu-item" href="/#!/users" sidebar-toggle-mobil>Equipe</a>
+                   </li>
+                   <li><a class="menu-item" href="/#!/clients" sidebar-toggle-mobil>Clientes</a>
+                   </li>
+                   <li><a class="menu-item" href="/#!/accounts" sidebar-toggle-mobil>Contas</a>
+                   </li>
+                   <li><a class="menu-item" href="/#!/vps" sidebar-toggle-mobil>VPS</a>
+                   </li>
+                 </ul>
+               </li>
+               <li class=" nav-item has-sub" id="networkmenu" ><a href="" ><i class="fas fa-sitemap"></i><span class="menu-title" data-i18n="">Monitor</span></a>
+                <ul class="menu-content">
+                       <li><a class="menu-item" href="/#!/monitor-ea" sidebar-toggle-mobil>Monitor EA</a>
+                       </li>
+                       <li><a class="menu-item" href="/#!/monitor-funds" sidebar-toggle-mobil>Monitor Fundos</a>
+                       </li>
+                       <li><a class="menu-item" href="/#!/monitor-traders" sidebar-toggle-mobil>Monitor Traders</a>
+                       </li>
+                       <li><a class="menu-item" href="/#!/monitor-vps" sidebar-toggle-mobil>Monitor VPS</a>
+                       </li>
+                     </ul>
+                   </li>    
           <li class=" nav-item"><a href="/#!/finances"><i class="fas fa-money-bill-alt"></i><span class="menu-title" data-i18n="">Financeiro</span></a>
           </li>
-          <li class=" nav-item"><a href="/#!/monitor-ea"><i class="fab fa-android"></i><span class="menu-title" data-i18n="">Mon. EA</span></a>
-          </li>
-          <li class=" nav-item"><a href="/#!/monitor-funds"><i class="fas fa-gem"></i><span class="menu-title" data-i18n="">Mon. Fundos</span></a>
-          </li>
-          <li class=" nav-item"><a href="/#!/monitor-traders"><i class="fas fa-trophy"></i><span class="menu-title" data-i18n="">Mon. Traders</span></a>
-          </li>
-          <li class=" nav-item"><a href="/#!/monitor-vps"><i class="fas fa-sitemap"></i><span class="menu-title" data-i18n="">Mon. VPS</span></a>
-          </li>
+        
          <!-- <li class=" nav-item"><a href="/#!/faq"><i class="fas fa-book"></i><span class="menu-title" data-i18n="">FAQ</span></a>
           </li>-->
 		<!---  <li class=" nav-item"><a href="/#!/pool"><i class="fas fa-coins"></i><span class="menu-title" data-i18n="">Pool</span></a>
