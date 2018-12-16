@@ -9,13 +9,14 @@
     function newclientctrl($window,$scope, $rootScope, $http,$localStorage , $interval, $timeout, $resource, toastr ) {
 		
 		var $ctrl = this;
-			$scope.clientdata = [];
+      $scope.clientdata = [];
+      $scope.clientdata.manager = '0';
 			$rootScope.storage =  $localStorage;
 		if(!($rootScope.storage.auth == 1)){
 			$localStorage.$reset();
 			location.href = '#!/login';
 		} 
-		
+    
 	
 	
 	var addressApi = "http://netpdm.com.br:83/api";
@@ -60,11 +61,14 @@
 		}			
     })
     .then(function(response) {
-            $scope.userslist = response.data;
-			// $scope.userdata={
-      //   level: '6'
-			// }
-			console.log(response);
+            $scope.userslist = response.data.data;
+            $scope.userslistx= {
+       id: '0' ,
+       name: ':.: Selecione o Gerente :.:'
+       }
+       
+       $scope.userslist.unshift($scope.userslistx);
+			console.log($scope.userslist);
     }, 
     function(response) { // optional
              console.log(response);

@@ -63,7 +63,7 @@
                                     <div class="col-6">
                                         <fieldset class="form-label-group">
 											<select class="custom-select" id="level" ng-model="clientdata.manager" required="">
-											<option ng-selected="{{x.id == 1}}" ng-repeat="x in userslist" value="{{x.id}}">{{x.name}}</option>
+											<option  ng-repeat="x in userslist" value="{{x.id}}" ng-selected="{{x.id == clientdata.manager}}" >{{x.name}}</option>
 											</select>
                                         </fieldset>
                                     </div>
