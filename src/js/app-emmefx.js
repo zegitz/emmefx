@@ -93,7 +93,7 @@
             })
 
             .state('editclient', {
-                url: '/editclient',
+                url: '/editclient/:id',
                 templateUrl: 'views/editclient.html',
                 controller: 'editclientctrl'
             })

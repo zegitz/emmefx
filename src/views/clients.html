@@ -41,46 +41,15 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td class="text-truncate">1</td>
-                                <td class="text-truncate">Bruce Wayne</td>
-                                <td class="text-truncate">batman</td>
-                                <td class="text-truncate">batman@batcaverna.com</td>
-								<td class="text-truncate">(11) 99999999</td>
-                                <td><a href="#" class="mb-0 btn-sm btn btn-outline-success round">Editar</a></td> 
+                            <tr ng-repeat="client in listagemClientes | orderBy : 'id'">
+                                <td class="text-truncate">{{client.id}}</td>
+                                <td class="text-truncate">{{client.name}}</td>
+                                <td class="text-truncate">{{client.username}}</td>
+                                <td class="text-truncate">{{client.email}}</td>
+								<td class="text-truncate">{{client.telefone}}</td>
+                                <td><a ng-href="/#!/editclient/{{client.id}}" class="mb-0 btn-sm btn btn-outline-success round">Editar</a></td> 
                             </tr>
-                           <tr>
-                                <td class="text-truncate">2</td>
-                                <td class="text-truncate">Bruce Wayne</td>
-                                <td class="text-truncate">batman</td>
-                                <td class="text-truncate">batman@batcaverna.com</td>
-								<td class="text-truncate">(11) 99999999</td>
-                                <td><a href="#" class="mb-0 btn-sm btn btn-outline-success round">Editar</a></td> 
-                            </tr>
-							<tr>
-                                <td class="text-truncate">3</td>
-                                <td class="text-truncate">Bruce Wayne</td>
-                                <td class="text-truncate">batman</td>
-                                <td class="text-truncate">batman@batcaverna.com</td>
-								<td class="text-truncate">(11) 99999999</td>
-                                <td><a href="#" class="mb-0 btn-sm btn btn-outline-success round">Editar</a></td> 
-                            </tr>
-							<tr>
-                                <td class="text-truncate">4</td>
-                                <td class="text-truncate">Bruce Wayne</td>
-                                <td class="text-truncate">batman</td>
-                                <td class="text-truncate">batman@batcaverna.com</td>
-								<td class="text-truncate">(11) 99999999</td>
-                                <td><a href="#" class="mb-0 btn-sm btn btn-outline-success round">Editar</a></td> 
-                            </tr>
-							<tr>
-                                <td class="text-truncate">5</td>
-                                <td class="text-truncate">Bruce Wayne</td>
-                                <td class="text-truncate">batman</td>
-                                <td class="text-truncate">batman@batcaverna.com</td>
-								<td class="text-truncate">(11) 99999999</td>
-                                <td><a href="#" class="mb-0 btn-sm btn btn-outline-success round">Editar</a></td> 
-                            </tr>
+                           
                         </tbody>
                     </table>
                 </div>

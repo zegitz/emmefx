@@ -14,30 +14,11 @@
 			$localStorage.$reset();
 			location.href = '#!/login';
 		} 
-		//  cssInjector.add("/css/bootstrap.css");
-		//  cssInjector.add("/css/font1.css");
-		//  cssInjector.add("/css/font2.css");
-		//  cssInjector.add("/css/font3.css");
-		//  cssInjector.add("/css/line-awesome.css");
-		//  cssInjector.add("/css/flag-icon.css");
-		//  cssInjector.add("/css/pace.css");
-		//  cssInjector.add("/css/customchartist.css");
-		//  cssInjector.add("/css/chartist-plugin-tooltip.css");
-		//  cssInjector.add("/css/bootstrap-extended.css");
-		//  cssInjector.add("/css/colors.css");
-		//  cssInjector.add("/css/components.css");
-		//  cssInjector.add("/css/vertical-compact-menu.css");
-		//  cssInjector.add("/css/cryptocoins.css");
-		//  cssInjector.add("/css/timeline.css");
-		//  cssInjector.add("/css/dashboard-ico.css");
-		//  cssInjector.add("/css/angular-datatables.css");
-		//  cssInjector.add("/css/ultimate-datatable.css");
 		
 	var addressApi = "http://netpdm.com.br:83/api";
 	//console.log($location.url());
-	//$interval(function() {
-	$mctrl.teste = function(){
-	if($location.url() == "/monito-ea"){
+	$interval(function() {
+	if($location.url() == "/monitor-ea"){
 	$http.get(addressApi+'/account/read').then(
     function (response){
         $scope.datatableData = response.data;
@@ -46,13 +27,11 @@
 		$scope.datatable = datatable(datatableConfig);}
 		//Set the data to the datatable
 		$scope.datatable.setData($scope.datatableData);
-		$mctrl.teste();
     },
     function (responseErro){
         console.error('Erro ' + responseErro);
-    })}}; //,1000);
+    })}},3000);
 	
- $mctrl.teste();
 	
     //Simple example of configuration
 		var datatableConfig = {

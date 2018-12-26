@@ -21,7 +21,7 @@
 	
 	var addressApi = "http://netpdm.com.br:83/api";
 
-	$scope.submitNewCliente = function(){
+	$scope.submitNewClient = function(){
 	 $http({
         url: addressApi+'/client/create.php',
         method: "POST",
@@ -32,8 +32,12 @@
 		"name" : $scope.clientdata.name,
 		"email" : $scope.clientdata.email,
 		"username" : $scope.clientdata.username,
-		"level" : $scope.clientdata.level,
-		"password" : $scope.clientdata.password,
+    "manager" : $scope.clientdata.manager,
+    "telefone" : $scope.clientdata.telefone,
+    "cpf" : $scope.clientdata.cpf,
+    "details" : 'N/A',
+    "avatar" : '0',
+    "password" : '102030',
 		"status" : '1'
 		}
 				
