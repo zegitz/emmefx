@@ -14,40 +14,70 @@
 			$localStorage.$reset();
 			location.href = '#!/login';
 		} 
-		//  cssInjector.add("/css/bootstrap.css");
-		//  cssInjector.add("/css/font1.css");
-		//  cssInjector.add("/css/font2.css");
-		//  cssInjector.add("/css/font3.css");
-		//  cssInjector.add("/css/line-awesome.css");
-		//  cssInjector.add("/css/flag-icon.css");
-		//  cssInjector.add("/css/pace.css");
-		//  cssInjector.add("/css/customchartist.css");
-		//  cssInjector.add("/css/chartist-plugin-tooltip.css");
-		//  cssInjector.add("/css/bootstrap-extended.css");
-		//  cssInjector.add("/css/colors.css");
-		//  cssInjector.add("/css/components.css");
-		//  cssInjector.add("/css/vertical-compact-menu.css");
-		//  cssInjector.add("/css/cryptocoins.css");
-		//  cssInjector.add("/css/timeline.css");
-		//  cssInjector.add("/css/dashboard-ico.css");
-		//  cssInjector.add("/css/angular-datatables.css");
-		//  cssInjector.add("/css/angular-toastr.css");
 
 var addressApi = "http://netpdm.com.br:83/api";
 	
-
-		$http.get(addressApi+'/user/read.php').then(
+$scope.getVps = function(){
+		$http.get(addressApi+'/vps/read.php').then(
     function (response){
       
-            $scope.listagemUsers = response.data.data;
-      
-        console.log($scope.listagemUsers);
+            $scope.listagemVps = response.data.data;
+           
+        //console.log($scope.listagemVps);
     },
     function (responseErro){
-        console.error('Erro ' + responseErro);
+        toastr.error('Erro ' + responseErro);
     });
-	
+  }
+  $scope.getVps();
 
+  $scope.deleteVps = function(index, name) {
+    var isConfirmed = confirm("Confirma a exclusão do VPS ("+name+") ?");
+    if(isConfirmed){
+      $http({
+        url: addressApi+'/vps/delete.php',
+        method: "POST",
+    headers: {
+    'Content-Type': "application/json; charset=UTF-8"
+    },
+        data: {
+     "id": index   
+    }         
+    }).then(function (response){
+      toastr.success('VPS Excluído!');
+          $scope.getVps();
+        },
+        function (responseErro){
+          toastr.error('Erro ' + responseErro);
+        });
+    }else{
+      return false;
+    }
+  };
+
+  $scope.getManager = function(){
+    $http.get(addressApi+'/user/read.php').then(
+      function (response){
+
+        $scope.listagemUsers = response.data.data;
+              
+        
+         // console.log($scope.listagemUsers);
+      },
+      function (responseErro){
+          console.error('Erro ' + responseErro);
+      });
+   };
+   $scope.getManager();
+   $scope.getName = function(id){
+    if($scope.listagemUsers){
+    for (var j=0; j < $scope.listagemUsers.length; ++j) {
+      if ($scope.listagemUsers[j].id == id) {
+         return $scope.listagemUsers[j].name ;
+         break;
+      }}
+   }
+   };
 	$ctrl.appmenu = function() {
 		/*=========================================================================================
   File Name: app-menu.js

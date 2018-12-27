@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    var emmefxApp = angular.module('emmefxApp', ['ui.router','ApiConnect','ultimateDataTableServices','chartistAngularDirective','menuToogle','ngStorage','ngResource','toastr']);
+    var emmefxApp = angular.module('emmefxApp', ['ui.router','ApiConnect','ultimateDataTableServices','chartistAngularDirective','menuToogle','ngStorage','ngResource','toastr','angularMoment']);
     emmefxApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider  ) {
 
 
@@ -75,7 +75,7 @@
             })
 
             .state('editaccount', {
-                url: '/editaccount',
+                url: '/editaccount/:id',
                 templateUrl: 'views/editaccount.html',
                 controller: 'editaccountctrl'
             })
@@ -111,9 +111,15 @@
             })
 
             .state('editvps', {
-                url: '/editvps',
+                url: '/editvps/:id',
                 templateUrl: 'views/editvps.html',
                 controller: 'editvpsctrl'
+            })
+
+            .state('orders', {
+                url: '/orders/:id',
+                templateUrl: 'views/orders.html',
+                controller: 'ordersCtrl'
             })
 			
 			

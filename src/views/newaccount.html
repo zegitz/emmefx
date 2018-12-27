@@ -8,7 +8,7 @@
       <div class="content-wrapper">
         <div class="content-header row">
           <div class="content-header-left col-md-8 col-12 mb-2 breadcrumb-new">
-            <h3 class="content-header-title mb-0 d-inline-block">Novo Usuario</h3>
+            <h3 class="content-header-title mb-0 d-inline-block">Nova Conta</h3>
             <div class="row breadcrumbs-top d-inline-block">
               <div class="breadcrumb-wrapper col-12">
                 <ol class="breadcrumb">
@@ -27,38 +27,50 @@
                     <div class="col-12">
                         <div class="row">
                             <div class="col-md-12 col-12">
-							<h5 class="mt-3">Informações do Usuario</h5>
+							<h5 class="mt-3">Informações da Conta</h5>
                                 <hr/>
 								<form name="new_account" ng-submit="submitNewAccount()" class="form-horizontal form-user-profile row mt-2" >
                                     <div class="col-6">
                                         <fieldset class="form-label-group">
                                             <input type="text" class="form-control" id="name" ng-model="accountdata.name" value="" required="" autofocus="">
-                                            <label for="first-name">Nome</label>
+                                            <label for="name">Nome</label>
                                         </fieldset>
                                     </div>
                                     <div class="col-6">
                                         <fieldset class="form-label-group">
-                                            <input type="text" class="form-control" id="email" ng-model="accountdata.email" value="" required="" autofocus="">
-                                            <label for="email-address">Email</label>
-                                        </fieldset>
-                                    </div>
-									<div class="col-6">
-                                        <fieldset class="form-label-group">
-                                            <input type="text" class="form-control" id="username" ng-model="accountdata.username" value="" required="" autofocus="">
-                                            <label for="username">Username</label>
+                                            <input type="text" class="form-control" id="accountnumber" ng-model="accountdata.accountnumber" value="" required="" autofocus="">
+                                            <label for="accountnumber">Conta</label>
                                         </fieldset>
                                     </div>
                                     <div class="col-6">
                                         <fieldset class="form-label-group">
-											<select class="custom-select" id="level" ng-model="accountdata.level" required="">
-											<option ng-selected="{{x.id == accountdata.level}}" ng-repeat="x in levelslist" value="{{x.id}}">{{x.level}}</option>
-											</select>
+                                            <input type="text" class="form-control" id="credit" ng-model="accountdata.credit" value="" required="" autofocus="">
+                                            <label for="credit">Depósito</label>
                                         </fieldset>
                                     </div>
                                     <div class="col-6">
                                         <fieldset class="form-label-group">
-                                            <input type="password" class="form-control" id="password" ng-model="accountdata.password" placeholder="Senha" required="" autofocus="">
+                                            <input type="text" class="form-control" id="password" ng-model="accountdata.password" required="" autofocus="">
                                             <label for="password">Senha</label>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-6">
+                                        <fieldset class="form-label-group">
+                                            <select class="custom-select" id="manager" ng-model="accountdata.manager" ng-options="manager.name for manager in managerList | orderBy:'name' track by manager.id" required="" autofocus="">
+                                                <option value="">:.: GERENTE DE CONTA :.:</option>
+                                        </select>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-6">
+                                        <fieldset class="form-label-group">
+                                            <select class="custom-select" id="client" ng-model="accountdata.client" ng-options="client.name for client in clientList | orderBy:'name' track by client.id" required="" autofocus="">
+                                                <option value="">:.: CLIENTE :.:</option>
+                                        </select>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-12">
+                                        <fieldset class="form-label-group">
+                                            <textarea class="form-control" id="details" ng-click="" ng-model="accountdata.details" required="" autofocus="" placeholder="OBSERVAÇÕES"></textarea>
                                         </fieldset>
                                     </div>
                                     <div class="col-12 text-right">

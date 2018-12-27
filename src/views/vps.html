@@ -41,13 +41,17 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr ng-repeat="vps in listagemVps | orderBy : 'id'">
+                            <tr ng-repeat="vps in listagemVps | orderBy : 'due'">
                                 <td class="text-truncate">{{vps.ip}}</td>
-                                <td class="text-truncate">{{vps.codigo}}</td>
-								<td class="text-truncate">{{vps.manager}}</td>
-                                <td class="text-truncate">{{vps.status}}</td>
-                                <td class="text-truncate">{{vps.validade}}</td>
-                                <td><a ng-href="/#!/editvps/{{vps.id}}" class="mb-0 btn-sm btn btn-outline-success round">Editar</a></td> 
+                                <td class="text-truncate">{{vps.name}}</td>
+								<td class="text-truncate">{{getName(vps.manager)}}</td>
+                                <td class="text-truncate">
+                                        <i class="fas fa-thumbs-up success" ng-if="vps.status == 1"></i>
+                                        <i class="fas fa-thumbs-down danger" ng-if="vps.status == 0"></i></td>
+                                <td class="text-truncate">{{(vps.due*1000) | date:"dd/MM/yyyy"}}</td>
+                                <td><a ng-href="/#!/editvps/{{vps.id}}" class="mb-0 btn-sm btn btn-outline-success round">Editar</a>
+                                    <button ng-click="deleteVps(vps.id,vps.name)" class="mb-0 btn-sm btn btn-outline-danger round">Excluir</button>
+                                </td> 
                             </tr>
                         </tbody>
                     </table>

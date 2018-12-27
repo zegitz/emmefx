@@ -11,6 +11,8 @@
 	"./node_modules/angular-toastr/dist/angular-toastr.tpls.js",
 	"./src/js/services/angular-authentication.js",
 	"./src/js/services/angular-api-connect.js",
+	"./node_modules/moment/moment.js",
+	"./node_modules/angular-moment/angular-moment.js",
 	"./bower_components/angular-cookies/angular-cookies.js",
 	"./src/js/plugins/ultimate-datatable-3.4.0-SNAPSHOT.js",
 	"./node_modules/angular-resource/angular-resource.js",

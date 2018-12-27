@@ -9,38 +9,48 @@
     function editaccountctrl($window,$scope, $rootScope, $state ,$http,$localStorage , $interval, $timeout, $resource, toastr ) {
 		
 		var $ctrl = this;
-			$scope.userdata = [];
+			$scope.accountdata = [];
 			$rootScope.storage =  $localStorage;
 		if(!($rootScope.storage.auth == 1)){
 			$localStorage.$reset();
 			location.href = '#!/login';
 		} 
 	
-	 $ctrl.userID = $state.params.id;
+	 $ctrl.accountID = $state.params.id;
 	 //console.log($ctrl.userID);
 	var addressApi = "http://netpdm.com.br:83/api";
 
-	$scope.submitNewUser = function(){
+	$scope.submitUpdateAccount = function(){
+    console.log($scope.accountdata)
+    if($scope.accountdata.client == null){
+      $scope.accountdata.client = 0;
+    }
+    if($scope.accountdata.manager == null){
+      $scope.accountdata.manager = 0;
+    }
+
 	 $http({
-        url: addressApi+'/user/create.php',
+        url: addressApi+'/account/updateportal.php',
         method: "POST",
 		headers: {
 		'Content-Type': "application/json; charset=UTF-8"
 		},
         data: {
-		"name" : $scope.userdata.name,
-		"email" : $scope.userdata.email,
-		"username" : $scope.userdata.username,
-		"level" : $scope.userdata.level,
-		"password" : $scope.userdata.password,
-		"status" : '1'
+     "id": $ctrl.accountID,    
+		"name" : $scope.accountdata.name,
+		"accountnumber" : $scope.accountdata.accountnumber,
+    "client" : $scope.accountdata.client,
+    "credit" : $scope.accountdata.credit,
+		"manager" : $scope.accountdata.manager,
+		"password" : $scope.accountdata.password,
+		"details" : $scope.accountdata.details
 		}
 				
     })
     .then(function(response) {
              if(response.data.status == 1){
-				location.href = '#!/users';
-			toastr.success("Cadastro ok!", 'Sucesso!');
+				location.href = '#!/accounts';
+			toastr.success("Atualização ok!", 'Sucesso!');
 			
 			}else{
 				toastr.error("Verifique os campos do Cadastro", 'Erro!');
@@ -50,48 +60,72 @@
             // console.log(response);
     });
  };
-  $ctrl.getUserdata = function(){
-	 $http({
-        url: addressApi+'/user/read_one.php',
-        method: "POST",
-		headers: {
-		'Content-Type': "application/json; charset=UTF-8"
-		},	
-		data: {
-		"id" : $ctrl.userID
-		}		
-    })
-    .then(function(response) {
-            $scope.userdata = response.data;
-			console.log(response);
-    }, 
-    function(response) { // optional
-             console.log(response);
-    });
-  };
- 
- $ctrl.getUserdata();
- 
- $scope.getLevelsList = function(){
-	 $http({
-        url: addressApi+'/user/levels.php',
-        method: "POST",
-		headers: {
-		'Content-Type': "application/json; charset=UTF-8"
-		}			
-    })
-    .then(function(response) {
-            $scope.levelslist = response.data;
-			$scope.userdata={
-        level: '6'
-			}
-			console.log(response);
-    }, 
-    function(response) { // optional
-             console.log(response);
-    });
- };
- $scope.getLevelsList();
+
+ $scope.getAccountData = function(){
+  $http({
+    url: addressApi+'/account/read_one.php',
+    method: "POST",
+headers: {
+'Content-Type': "application/json; charset=UTF-8"
+},	
+data: {
+"id" : $ctrl.accountID
+}		
+}).then(
+  function (response){
+    
+          $scope.accountdata = response.data;
+          if($scope.accountdata.manager == 0){ 
+            $scope.accountdata.manager= null; 
+          }
+          if($scope.accountdata.client == 0){ 
+            $scope.accountdata.client= null; 
+          }
+      console.log($scope.accountdata);
+  },
+  function (responseErro){
+      console.error('Erro ' + responseErro);
+  });
+};
+$scope.getAccountData(); 
+
+ $scope.getManagerList = function(){
+  $http({
+       url: addressApi+'/user/read.php',
+       method: "POST",
+   headers: {
+   'Content-Type': "application/json; charset=UTF-8"
+   }			
+   })
+   .then(function(response) {
+           $scope.managerList = response.data.data;
+           console.log($scope.managerList);
+   }, 
+   function(response) { // optional
+            console.log(response);
+   });
+};
+$scope.getManagerList();
+
+$scope.getClientList = function(){
+  $http({
+       url: addressApi+'/client/read.php',
+       method: "POST",
+   headers: {
+   'Content-Type': "application/json; charset=UTF-8"
+   }			
+   })
+   .then(function(response) {
+           $scope.clientList = response.data.data;
+           console.log($scope.clientList);
+   }, 
+   function(response) { // optional
+            console.log(response);
+   });
+};
+$scope.getClientList();
+
+
 	$ctrl.appmenu = function() {
 		/*=========================================================================================
   File Name: app-menu.js

@@ -43,14 +43,16 @@
                         </thead>
                         <tbody>
                             <tr ng-repeat="conta in listagemContas">
-                                <td class="text-truncate">{{conta.id}}</td>
-                                <td class="text-truncate">{{conta.accountnumber}}</td>
-                                <td class="text-truncate">{{conta.name}}</td>
-								<td class="text-truncate">{{conta.credit}}</td>
-								<td class="text-truncate">{{conta.manager}}</td>
-                                <td class="text-truncate"><span ng-show="conta.status == 1"><i class="la la-dot-circle-o success font-large-1" ></i>On</span>
-								<span ng-show="conta.status == 0"><i class="la la-dot-circle-o danger font-large-1" ></i>Off</span></td>
-                                <td><a href="#" class="mb-0 btn-sm btn btn-outline-success round">Editar</a></td> 
+                                <td class="text-truncate" style="font-size: 10px;">{{conta.id}}</td>
+                                <td class="text-truncate" style="font-size: 10px;">{{conta.accountnumber}}</td>
+                                <td class="text-truncate" style="font-size: 10px;">{{conta.name}}</td>
+								<td class="text-truncate" style="font-size: 10px;">{{conta.credit}}</td>
+								<td class="text-truncate" style="font-size: 10px;">{{getName(conta.manager)}}</td>
+                                <td class="text-truncate"><span ng-show="conta.status == 1" style="font-size: 10px;"><i class="la la-dot-circle-o success font-large-1" ></i>On</span>
+								<span ng-show="conta.status == 0" style="font-size: 10px;"><i class="la la-dot-circle-o danger font-large-1" ></i>Off</span></td>
+                                <td><a href="/#!/editaccount/{{conta.id}}" class="mb-0 btn-sm btn btn-outline-success round" style="text-transform: capitalize;font-size: 10px;">Editar</a>
+                                    <button ng-click="deleteAccount(conta.id,conta.accountnumber)" class="mb-0 btn-sm btn btn-outline-danger round" style="font-size: 10px;">Excluir</button>
+                                </td> 
                             </tr>
                         </tbody>
                     </table>

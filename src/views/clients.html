@@ -47,7 +47,10 @@
                                 <td class="text-truncate">{{client.username}}</td>
                                 <td class="text-truncate">{{client.email}}</td>
 								<td class="text-truncate">{{client.telefone}}</td>
-                                <td><a ng-href="/#!/editclient/{{client.id}}" class="mb-0 btn-sm btn btn-outline-success round">Editar</a></td> 
+                                <td>
+                                    <a ng-href="/#!/editclient/{{client.id}}" class="mb-0 btn-sm btn btn-outline-success round">Editar</a>
+                                    <button ng-click="deleteClient(client.id,client.name)" class="mb-0 btn-sm btn btn-outline-danger round">Excluir</button>
+                                </td> 
                             </tr>
                            
                         </tbody>

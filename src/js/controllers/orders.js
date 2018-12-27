@@ -2,93 +2,175 @@
     'use strict';
 
     angular.module('emmefxApp')
-  .controller('accountsctrl', accountsctrl)
-    accountsctrl.$inject = ['$window','$scope', '$rootScope', '$http','$localStorage','$interval',
+  .controller('ordersCtrl', ordersCtrl)
+    ordersCtrl.$inject = ['$window','$scope','$location', '$state' , 'datatable','$rootScope', '$http','$localStorage','$interval',
     '$timeout']
 
-    function accountsctrl($window,$scope, $rootScope, $http ,$localStorage, $interval, $timeout) {
+    function ordersCtrl($window,$scope ,$location ,$state , datatable, $rootScope, $http ,$localStorage  , $interval, $timeout) {
 		
-		var $ctrl = this;
-		$rootScope.storage =  $localStorage;
+		var $mctrl = this;
+			$rootScope.storage =  $localStorage;
 		if(!($rootScope.storage.auth == 1)){
 			$localStorage.$reset();
 			location.href = '#!/login';
-		} 
+    } 
+    $scope.accountID = $state.params.id;
 		
-	
-var addressApi = "http://netpdm.com.br:83/api";
-	
-$scope.getAccountList = function(){
-		$http.get(addressApi+'/account/read').then(
-    function (response){
-      
-            $scope.listagemContas = response.data;
-      
-        console.log($scope.listagemContas);
-    },
-    function (responseErro){
-        console.error('Erro ' + responseErro);
-    });
-  };
-  $scope.getAccountList(); 
- $scope.deleteAccount = function(index, name) {
-  var isConfirmed = confirm("Confirma a exclusão da conta ("+name+") ?");
-  if(isConfirmed){
+	var addressApi = "http://netpdm.com.br:83/api";
+	//console.log($location.url());
+	$interval(function() {
+	if($location.url() == "/orders/"+$scope.accountID){
     $http({
-      url: addressApi+'/account/delete.php',
+      url: addressApi+'/order/read_account.php',
       method: "POST",
   headers: {
   'Content-Type': "application/json; charset=UTF-8"
-  },
-      data: {
-   "id": index   
-  }         
-  }).then(function (response){
-    toastr.success('Conta Excluída!');
-        $scope.getAccountList();
+  },	
+  data: {
+  "account": $scope.accountID 
+  }		
+  }).then(
+    function (response){
+        $scope.datatableData = response.data.data;
+        console.log($scope.datatableData);
+		if(!$scope.datatable){
+		$scope.datatable = datatable(datatableConfig);}
+		//Set the data to the datatable
+		$scope.datatable.setData($scope.datatableData);
+    },
+    function (responseErro){
+        console.error('Erro ' + responseErro);
+    })}},3000);
+	
+	
+    //Simple example of configuration
+		var datatableConfig = {
+      "name":"simple_datatable",
+			"columns":[
+				{
+					"header":"#ID",
+					"property":"orderid",
+					"order":true,
+          "type":"text",
+          "thClass": "coluna-monitor"
+					
+				},
+				{
+					"header":"Ativo",
+					"property":"ativo",
+					"order":true,
+					"hide":false,
+          "type":"text",
+          "thClass": "coluna-monitor",
+				},
+				{
+					"header":"Tipo",
+					"property":"type",
+					"order":true,
+					"type":"text",
+					"hide":false,
+          "edit":false,
+          "thClass": "coluna-monitor"
+				},
+				{
+					"header":"Lote",
+					"property":"lot",
+					"order":true,
+					"hide":false,
+          "type":"text",
+          "thClass": "coluna-monitor",
+          "group": false ,
+          "groupMethod": "sum"
+        },
+        {
+					"header":"Preço",
+					"property":"price",
+					"order":true,
+					"hide":false,
+          "type":"text",
+          "thClass": "coluna-monitor"
+        },
+        {
+					"header":"SL",
+					"property":"sl",
+					"order":true,
+          "hide":false,
+          "edit":true,
+          "type":"text",
+          "thClass": "coluna-monitor"
+        },
+        {
+					"header":"TP",
+					"property":"tp",
+					"order":true,
+          "hide":false,
+          "edit":true,
+          "type":"text",
+          "thClass": "coluna-monitor"
+        },
+        {
+					"header":"Lucro",
+					"property":"balance",
+					"order":true,
+					"hide":false,
+          "type":"text",
+          "thClass": "coluna-monitor",
+          "group": false ,
+          "groupMethod": "sum"
+        },
+        {
+					"header":"Data",
+					"property":"datetime",
+					"order":true,
+					"hide":false,
+          "type":"text",
+          "render": "<span>{{(value.data.datetime*1000) | date:\"dd/MM/yyyy hh:mm:ss a\"}}</td>",
+          "thClass": "coluna-monitor"
+        },
+				{
+					"header":"Ferramentas",
+					"order":false,
+					"type":"text",
+					"hide":false,
+          "render":"<i class=\"fas fa-trash-alt font-medium-3 danger mr-1\"> </i><i class=\"fas fa-globe-americas font-medium-3 warning\"></i>",
+          "thClass": "coluna-monitor"
+        },
+       { "compact": false}
+      ],
+      "lines": {
+        "trClass": "linha-monitor"
+    },
+			"edit":{
+				"active":true,
+				"columnMode":true
+			},
+			"pagination":{
+				"mode":'local'
+			},
+			"order":{
+				"mode":'local'
+			},
+			"remove":{
+				"active":true,
+				"mode":'local'
       },
-      function (responseErro){
-        toastr.error('Erro ' + responseErro);
-      });
-  }else{
-    return false;
-  }
-};
-  
-$scope.getManagerList = function(){
-  $http({
-       url: addressApi+'/user/read.php',
-       method: "POST",
-   headers: {
-   'Content-Type': "application/json; charset=UTF-8"
-   }			
-   })
-   .then(function(response) {
-           $scope.managerList = response.data.data;
-           console.log($scope.managerList);
-   }, 
-   function(response) { // optional
-            console.log(response);
-   });
-};
-$scope.getManagerList();
+      "search": {
+        "active": true,
+        "mode": 'local'
+    }
+		};
 
-$scope.getName = function(id){
-  if($scope.managerList){
-  for (var j=0; j < $scope.managerList.length; ++j) {
-    if ($scope.managerList[j].id == id) {
-      return $scope.managerList[j].username ;
-      break;
-    }
-    if(id == 0){
-      var retorno = "N/A";
-      return retorno;
-      break;
-    }
-  }
- }
- };
-	$ctrl.appmenu = function() {
+		//Simple exemple of data
+		//var datatableData = [{"test":1, "test2":1000},{"test":1, "test2":1000},{"test":1, "test2":1000},
+		//{"test":1, "test2":1000},{"test":1, "test2":1000},{"test":1, "test2":1000},
+		//{"test":1, "test2":1000}];
+		//$scope.datatable = datatable(datatableConfig);
+		//Set the data to the datatable
+		//$scope.datatable.setData($scope.datatableData);
+		
+	
+	//console.log($.getJSON('http://netpdm.com.br:83/api/account/read.php'));
+	$mctrl.appmenu = function() {
 		/*=========================================================================================
   File Name: app-menu.js
   Description: Menu navigation, custom scrollbar, hover scroll bar, multilevel menu
@@ -760,7 +842,7 @@ $scope.getName = function(id){
 })(window, document, jQuery);
 	}
 	
-	$ctrl.app = function(){
+	$mctrl.app = function(){
       var menuObj = this;
 	  var $body       = $('body');
 	  var windowEl = angular.element($window); 
@@ -1061,13 +1143,17 @@ $scope.getName = function(id){
         e.stopPropagation();
       });
 	};
-	
-	
+	//$ctrl.monitor("read",function (response) {
+          //  $scope.contas= response.data;
+			//console.log($scope.contas);
+    //    });
+		
 	$scope.$on('$viewContentLoaded', function(event){
 		$timeout(function() {
-	$ctrl.app();
-	 }, 500);
-	
+	//$ctrl.timeline();
+	$mctrl.app();
+	//Init the datatable with his configuration
+	 }, 5000);
  });
 	
 	}})();	

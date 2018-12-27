@@ -41,65 +41,69 @@
 					"header":"Conta",
 					"property":"accountnumber",
 					"order":true,
-					"type":"text"
+          "type":"text",
+          "thClass": "coluna-monitor"
 					
 				},
 				{
 					"header":"Nome",
 					"property":"name",
 					"order":true,
-					"hide":true,
-					"type":"text"
+					"hide":false,
+          "type":"text",
+          "thClass": "coluna-monitor",
 				},
 				{
 					"header":"Depósito",
 					"property":"credit",
 					"order":true,
 					"type":"text",
-					"hide":true,
-					"edit":false
+					"hide":false,
+          "edit":false,
+          "thClass": "coluna-monitor"
 				},
 				{
 					"header":"Saldo",
 					"property":"balance",
 					"order":true,
-					"hide":true,
-					"type":"text"
-				},
-				{
-					"header":"Liquido",
-					"property":"equity",
-					"order":true,
-					"hide":true,
-					"type":"text"
+					"hide":false,
+          "type":"text",
+          "thClass": "coluna-monitor"
 				},
 				{
 					"header":"Margem",
-					"property":"marginfree",
-					"order":true,
-					"hide":true,
-					"type":"text"
-				},
-				{
-					"header":"MargemLv",
 					"property":"marginlevel",
 					"order":true,
 					"type":"text",
-					"hide":true,
-					"render":"<i class=\"fas fa-bullseye font-medium-4 success\" ng-show=\"{{value.data.marginlevel >= 4000}}\"> {{value.data.marginlevel}}</i><i class=\"fas fa-bullseye font-medium-4  warning\" ng-show=\"{{value.data.marginlevel < 4000 && value.data.marginlevel >= 1000 }}\"> {{value.data.marginlevel}}</i><i class=\"fas fa-bullseye font-medium-4  danger\" ng-show=\"{{value.data.marginlevel < 1000}}\"> {{value.data.marginlevel}}</i> "
+					"hide":false,
+          "render":"<i class=\"fas fa-bullseye font-medium-4 success\" ng-show=\"{{value.data.marginlevel >= 4000}}\"> {{value.data.marginlevel}}</i><i class=\"fas fa-bullseye font-medium-4  warning\" ng-show=\"{{value.data.marginlevel < 4000 && value.data.marginlevel >= 1000 }}\"> {{value.data.marginlevel}}</i><i class=\"fas fa-bullseye font-medium-4  danger\" ng-show=\"{{value.data.marginlevel < 1000}}\"> {{value.data.marginlevel}}</i> ",
+          "thClass": "coluna-monitor"
 					
 				},
 				{
 					"header":"Status EA",
 					"property":"status",
-					"order":true,
+					"order":false,
 					"type":"text",
-					"hide":true,
-					"render":"<i class=\"fas fa-robot font-medium-4  success\" ng-show=\"{{value.data.status == 1}}\"></i><i class=\"fas fa-robot font-medium-4  danger\" ng-show=\"{{value.data.status == 0}}\"></i>"
+					"hide":false,
+          "render":"<i class=\"fas fa-robot font-medium-3  success\" ng-show=\"{{value.data.status == 1}}\"></i><i class=\"fas fa-robot font-medium-3  danger\" ng-show=\"{{value.data.status == 0}}\"></i>",
+          "thClass": "coluna-monitor"
+        },
+        {
+					"header":"Ordens",
+					"property":"ordens",
+					"order":false,
+					"type":"text",
+					"hide":false,
+          "render":"<a href=\"#!/orders/{{value.data.accountnumber}}\"><i class=\"fas fa-list-alt font-medium-3  info\"></i></a>",
+          "thClass": "coluna-monitor"
 				}
-			],
+      ],
+      "lines": {
+        "trClass": "linha-monitor"
+    },
 			"edit":{
-				"active":true,
+				"active":false,
 				"columnMode":true
 			},
 			"pagination":{

@@ -4,9 +4,9 @@
     angular.module('emmefxApp')
   .controller('clientsctrl', clientsctrl)
     clientsctrl.$inject = ['$window','$scope', '$rootScope', '$http','$localStorage' ,'$interval',
-    '$timeout','$resource']
+    '$timeout','$resource','toastr']
 
-    function clientsctrl($window,$scope, $rootScope, $http ,$localStorage , $interval, $timeout, $resource ) {
+    function clientsctrl($window,$scope, $rootScope, $http ,$localStorage , $interval, $timeout, $resource,toastr ) {
 		
 		var $ctrl = this;
 		$rootScope.storage =  $localStorage;
@@ -16,8 +16,7 @@
 		} 
     
     var addressApi = "http://netpdm.com.br:83/api";
-	
-
+	$scope.getClients = function(){
 		$http.get(addressApi+'/client/read.php').then(
     function (response){
       
@@ -26,10 +25,35 @@
         console.log($scope.listagemClientes);
     },
     function (responseErro){
-        console.error('Erro ' + responseErro);
+      toastr.error('Erro ' + responseErro);
     });
-	
-	
+  }
+  $scope.getClients();
+     $scope.deleteClient = function(index, name) {
+      var isConfirmed = confirm("Confirma a exclusão do cliente ("+name+") ?");
+      if(isConfirmed){
+        $http({
+          url: addressApi+'/client/delete.php',
+          method: "POST",
+      headers: {
+      'Content-Type': "application/json; charset=UTF-8"
+      },
+          data: {
+       "id": index   
+      }         
+      }).then(function (response){
+        toastr.success('Cliente Excluído!');
+            $scope.getClients();
+          },
+          function (responseErro){
+            toastr.error('Erro ' + responseErro);
+          });
+      }else{
+        return false;
+      }
+    };
+
+
 	$ctrl.appmenu = function() {
 		/*=========================================================================================
   File Name: app-menu.js

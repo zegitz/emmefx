@@ -33,3 +33,11 @@ li{list-style: none;}
 .skin-flat .colors li.pink{background:#af7ac5}
 .skin-flat .colors li.purple{background:#8677a7}
 .skin-line .colors li.yellow{background:#ffc414}
+
+.coluna-monitor{
+    font-size: 10px!important;
+}
+
+.linha-monitor{
+    font-size: 10px
+}
