@@ -32,7 +32,8 @@
   }).then(
     function (response){
         $scope.datatableData = response.data.data;
-        console.log($scope.datatableData);
+        $scope.resumo = response.data.resumo;
+        //console.log(response);
 		if(!$scope.datatable){
 		$scope.datatable = datatable(datatableConfig);}
 		//Set the data to the datatable
@@ -70,6 +71,7 @@
 					"type":"text",
 					"hide":false,
           "edit":false,
+          "render":"<button class=\" btn-sm btn btn-danger round\" style=\"padding: 0.15rem 0.55rem;font-size: 10px;\" ng-if=\"value.data.type == 1\">Sell</button><button class=\" btn-sm btn btn-success round\"  style=\"padding: 0.15rem 0.55rem;font-size: 10px;\" ng-if=\"value.data.type == 0\">Buy</button>",
           "thClass": "coluna-monitor"
 				},
 				{
@@ -115,8 +117,6 @@
 					"hide":false,
           "type":"text",
           "thClass": "coluna-monitor",
-          "group": false ,
-          "groupMethod": "sum"
         },
         {
 					"header":"Data",
@@ -124,7 +124,7 @@
 					"order":true,
 					"hide":false,
           "type":"text",
-          "render": "<span>{{(value.data.datetime*1000) | date:\"dd/MM/yyyy hh:mm:ss a\"}}</td>",
+          "render": "<span class=\"text-center\">{{(value.data.datetime*1000) | date:\"dd/MM/yyyy HH:mm:ss \"}}</td>",
           "thClass": "coluna-monitor"
         },
 				{
@@ -132,7 +132,7 @@
 					"order":false,
 					"type":"text",
 					"hide":false,
-          "render":"<i class=\"fas fa-trash-alt font-medium-3 danger mr-1\"> </i><i class=\"fas fa-globe-americas font-medium-3 warning\"></i>",
+          "render":"<i class=\"fas fa-trash-alt font-medium-2 danger mr-1\"> </i><i class=\"fas fa-globe-americas font-medium-2 warning\"></i>",
           "thClass": "coluna-monitor"
         },
        { "compact": false}
@@ -141,8 +141,8 @@
         "trClass": "linha-monitor"
     },
 			"edit":{
-				"active":true,
-				"columnMode":true
+				"active":false,
+				"columnMode":false
 			},
 			"pagination":{
 				"mode":'local'
@@ -151,13 +151,9 @@
 				"mode":'local'
 			},
 			"remove":{
-				"active":true,
+				"active":false,
 				"mode":'local'
-      },
-      "search": {
-        "active": true,
-        "mode": 'local'
-    }
+      }
 		};
 
 		//Simple exemple of data

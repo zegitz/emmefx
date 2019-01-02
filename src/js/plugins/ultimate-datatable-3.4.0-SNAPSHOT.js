@@ -55,12 +55,12 @@ factory('datatable', ['$http', '$filter', '$parse', '$window', '$q', 'udtI18n', 
                     trClass: undefined // function with data than return css class or just the css class
                 },
                 search: {
-                    active: true,
+                    active: false,
                     mode: 'remote',
                     url: undefined
                 },
                 localSearch: {
-                    active: true,
+                    active: false,
                     highlight: true,
                     columnMode: false,
                     showButton: false
